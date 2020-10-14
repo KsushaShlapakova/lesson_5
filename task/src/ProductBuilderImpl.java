@@ -1,4 +1,5 @@
 public class ProductBuilderImpl implements ProductBuilder {
+
     private Product product;
 
     ProductBuilderImpl(){

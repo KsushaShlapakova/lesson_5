@@ -1,10 +1,11 @@
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         Thread thread1 = new Thread(new Runnable(){
             @Override
             public void run() {
                 try {
-                    printer("Hello!", 1);
+                    printer(1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -29,7 +30,9 @@ public class Main {
 
                     thread3.start();
                     thread3.join();
-                    printer("Hi", 2);
+                    Thread.sleep(900); //TIMED_WAITING;
+
+                    printer(2);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -49,10 +52,9 @@ public class Main {
         Thread.sleep(1500);
         System.out.println(thread2.getState());
 
-
         //Timed waiting
-        Thread.sleep(1000);
-        System.out.println(thread1.getState());
+        Thread.sleep(2000);
+        System.out.println(thread2.getState());
 
         //Blocked
         Thread.sleep(1000);
@@ -63,7 +65,7 @@ public class Main {
         System.out.println(thread2.getState());
     }
 
-    public static synchronized void printer(String data, int num) throws InterruptedException {
+    public static synchronized void printer(int num) throws InterruptedException {
         Thread.sleep(5500);
         System.out.println("Поток: "+ num);
     }
